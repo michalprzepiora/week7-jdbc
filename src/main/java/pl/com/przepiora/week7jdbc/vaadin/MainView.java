@@ -4,6 +4,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
@@ -35,6 +36,7 @@ public class MainView extends VerticalLayout {
 
   public MainView() {
     this.setDefaultHorizontalComponentAlignment(Alignment.CENTER);
+    Label label = new Label("JDBC");
 
     HorizontalLayout carGridLayout = new HorizontalLayout();
     carGridLayout.setWidth("950px");
@@ -75,9 +77,10 @@ public class MainView extends VerticalLayout {
     activeFilterCheckbox = new Checkbox("Filter by year range.");
     setEnabledFilterForm(false);
     filterRow.add(fromTextField, toTextField, applyFilterButton, activeFilterCheckbox);
-    activeFilterCheckbox.addClickListener(event -> setEnabledFilterForm(activeFilterCheckbox.getValue()));
+    activeFilterCheckbox
+        .addClickListener(event -> setEnabledFilterForm(activeFilterCheckbox.getValue()));
 
-    add(headerButtons, carGridLayout, filterRow);
+    add(label, headerButtons, carGridLayout, filterRow);
   }
 
   private void setFilteredItemsInCarGrid() {
