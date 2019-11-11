@@ -13,11 +13,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.function.ValueProvider;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.annotation.UIScope;
 import pl.com.przepiora.week7jdbc.model.Car;
 import pl.com.przepiora.week7jdbc.service.CarService;
 
 
 @Route
+@UIScope
 public class MainView extends VerticalLayout {
 
   private Grid<Car> carGrid;
